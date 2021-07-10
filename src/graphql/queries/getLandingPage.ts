@@ -26,11 +26,22 @@ const GET_LANDING_PAGE = gql`
     }
   }
 
+  fragment sectionAboutProject on LandingPage {
+    sectionAboutProject {
+      title
+      description
+      image {
+        ...imageData
+      }
+    }
+  }
+
   query GET_LANDING_PAGE {
     landingPage {
       createdAt: created_at
       ...logo
       ...header
+      ...sectionAboutProject
     }
   }
 `
